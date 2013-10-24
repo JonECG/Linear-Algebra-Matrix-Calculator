@@ -2,12 +2,14 @@ package neumont.mat210;
 
 public class Matrix 
 {
-	double[][] cells;
-	double determinant;
+	private double[][] cells;
+	private double determinant;
 	
 	public Matrix(){ this(3); }
+	
 	public Matrix( int dimension ){
-		
+		this.cells = new double[dimension][dimension];
+		calculateDeterminant();
 	}
 	
 	private void calculateDeterminant(){
@@ -22,11 +24,11 @@ public class Matrix
 		
 	}
 	
-	public void setCell( int column, int row ){
-		
+	public void setCell( int column, int row, double value ){
+		this.cells[column][row] = value;
 	}
 	
 	public double getCell( int column, int row ){
-		return 0;
+		return this.cells[column][row];
 	}
 }
