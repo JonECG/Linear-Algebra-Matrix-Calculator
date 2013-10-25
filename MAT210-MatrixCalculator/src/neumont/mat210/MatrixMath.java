@@ -19,7 +19,12 @@ public class MatrixMath {
 	}
 	
 	public static Matrix transpose( Matrix mat ){
-		return null;
+		Matrix result = new Matrix(mat.getDimension());
+//		for(int row = 0; row < mat.length(); row++)
+//		{
+//			for(int )
+//		}
+		return result;
 	}
 	
 	public static Matrix invert( Matrix mat ){
