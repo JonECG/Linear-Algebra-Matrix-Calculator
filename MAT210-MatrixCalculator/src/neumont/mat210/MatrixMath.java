@@ -90,7 +90,7 @@ public class MatrixMath {
 			for( int j = 0; j < mat.getDimension(); j++ )
 			{
 				if( i != column && j != row )
-					result.setCell( (i>column)?i-1:i, (j>column)?j-j:j, mat.getCell( i, j ) );
+					result.setCell( (i>column)?i-1:i, (j>row)?j-1:j, mat.getCell( i, j ) );
 			}
 		}
 		return result;
