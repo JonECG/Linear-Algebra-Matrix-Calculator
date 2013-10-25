@@ -12,7 +12,20 @@ public class Matrix
 		calculateDeterminant();
 	}
 	
-	private void calculateDeterminant(){
+	private double calculateDeterminant(){
+		double determinate = 0;
+		int sign = 1;
+		for( int i = 0; i < cells.length; i++ )
+		{
+			determinate += sign * MatrixMath.minor( this, i, 0 ).calculateDeterminant();
+			sign *= -1;
+		}
+		return determinate;
+	}
+	
+	public int getDimension()
+	{
+		return cells.length;
 	}
 	
 	public double getDeterminant()

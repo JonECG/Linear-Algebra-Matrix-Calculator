@@ -31,6 +31,15 @@ public class MatrixMath {
 	}
 	
 	public static Matrix minor( Matrix mat, int column, int row ){
-		return null;
+		Matrix result = new Matrix( mat.getDimension()-1 );
+		for( int i = 0; i < mat.getDimension(); i++ )
+		{
+			for( int j = 0; j < mat.getDimension(); j++ )
+			{
+				if( i != column && j != row )
+					result.setCell( (i>column)?i-1:i, (j>column)?j-j:j, mat.getCell( i, j ) );
+			}
+		}
+		return result;
 	}
 }
