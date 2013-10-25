@@ -79,13 +79,13 @@ public class MatrixMath {
 	}
 	
 	
-	private static Matrix adjoint( Matrix mat ){
+	public static Matrix adjoint( Matrix mat ){
 		Matrix result = new Matrix( mat.getDimension() );
 		for( int col = 0; col < mat.getDimension(); col++ )
 		{
 			for( int row = 0; row < mat.getDimension(); row++ )
 			{
-				result.setCell( col, row, ((col+row%2==0)?1:-1)*minor(mat, row, col).getDeterminant() );
+				result.setCell( col, row, (((col+row)%2==0)?1:-1)*minor(mat, row, col).getDeterminant() );
 			}
 		}
 		return result;
@@ -98,7 +98,7 @@ public class MatrixMath {
 			for( int j = 0; j < mat.getDimension(); j++ )
 			{
 				if( i != column && j != row )
-					result.setCell( (i>column)?i-1:i, (j>column)?j-j:j, mat.getCell( i, j ) );
+					result.setCell( (i>column)?i-1:i, (j>row)?j-1:j, mat.getCell( i, j ) );
 			}
 		}
 		return result;
