@@ -75,12 +75,20 @@ public class MatrixMath {
 	
 	
 	public static Matrix invert( Matrix mat ){
-		return null;
+		return scale( 1/mat.getDeterminant(), adjoint(mat) );
 	}
 	
 	
-	public static Matrix adjoint( Matrix mat ){
-		return null;
+	private static Matrix adjoint( Matrix mat ){
+		Matrix result = new Matrix( mat.getDimension() );
+		for( int col = 0; col < mat.getDimension(); col++ )
+		{
+			for( int row = 0; row < mat.getDimension(); row++ )
+			{
+				result.setCell( col, row, ((col+row%2==0)?1:-1)*minor(mat, row, col).getDeterminant() );
+			}
+		}
+		return result;
 	}
 	
 	public static Matrix minor( Matrix mat, int column, int row ){
