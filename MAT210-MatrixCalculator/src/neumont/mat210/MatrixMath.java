@@ -2,15 +2,6 @@ package neumont.mat210;
 
 public class MatrixMath {
 	
-	public static Matrix makeIdentity( int dimension )
-	{
-		Matrix result = new Matrix(dimension);
-		for( int i = 0; i < dimension; i++ )
-		{
-			result.setCell(i,i,1);
-		}
-		return result;
-	}
 	public static Matrix add( Matrix a, Matrix b ){
 		Matrix result = new Matrix(a.getDimension());
 		for(int col = 0; col < result.getDimension(); col++)
@@ -41,12 +32,12 @@ public class MatrixMath {
 	//this works! tested on 2 3x3s
 	public static Matrix multiply( Matrix a, Matrix b ){
 		
-		Matrix m = new Matrix(a.cells.length);
+		Matrix m = new Matrix(a.getDimension());
 		
-		for(int row = 0 ; row < a.cells.length ; row++){
-			for(int col = 0 ; col < a.cells.length; col++){
-				for(int i =0 ; i < a.cells.length ; i ++){
-					m.incrementCell(col, row, a.getCell(i, row) * b.getCell(col, i));
+		for(int row = 0 ; row < a.getDimension() ; row++){
+			for(int col = 0 ; col < a.getDimension(); col++){
+				for(int i =0 ; i < a.getDimension() ; i ++){
+					m.getCell(col,row += a.getCell(i, row) * b.getCell(col, i));
 				}
 			}
 		}
@@ -56,13 +47,13 @@ public class MatrixMath {
 	
 	public static Matrix scale( double scalar,Matrix a){
 		
-		Matrix n= new Matrix(a.cells.length);
+		Matrix n= new Matrix(a.getDimension());
 		
-		for(int row=0; row < a.cells.length; row++)
+		for(int row=0; row < a.getDimension(); row++)
 		{
-		   for(int col=0; col<a.cells.length; col++)
+		   for(int col=0; col<a.getDimension(); col++)
 		   {
-			  n.cells[row][col] = a.cells[row][col] * scalar;
+			  n.setCell(col, row, a.getCell(row, col) * scalar);
 		   }
 			   
 		}
@@ -99,7 +90,7 @@ public class MatrixMath {
 			for( int j = 0; j < mat.getDimension(); j++ )
 			{
 				if( i != column && j != row )
-					result.setCell( (i>column)?i-1:i, (j>row)?j-1:j, mat.getCell( i, j ) );
+					result.setCell( (i>column)?i-1:i, (j>column)?j-j:j, mat.getCell( i, j ) );
 			}
 		}
 		return result;
