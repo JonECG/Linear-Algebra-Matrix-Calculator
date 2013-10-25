@@ -72,7 +72,6 @@ public class MatrixMath {
 		return null;
 	}
 	
-	//There is an "array index out-of-bounds error" coming from this method
 	public static Matrix minor( Matrix mat, int column, int row ){
 		Matrix result = new Matrix( mat.getDimension()-1 );
 		for( int i = 0; i < mat.getDimension(); i++ )
