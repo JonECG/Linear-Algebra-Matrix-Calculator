@@ -45,8 +45,19 @@ public class MatrixMath {
 	}
 	
 	
-	public static Matrix scale( double scalar ){
-		return null;
+	public static Matrix scale( double scalar,Matrix a){
+		
+		Matrix n= new Matrix(a.cells.length);
+		
+		for(int row=0; row < a.cells.length; row++)
+		{
+		   for(int col=0; col<a.cells.length; col++)
+		   {
+			  n.cells[row][col] = a.cells[row][col] * scalar;
+		   }
+			   
+		}
+		return n;
 	}
 	
 
