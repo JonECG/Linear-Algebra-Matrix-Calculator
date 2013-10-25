@@ -2,7 +2,7 @@ package neumont.mat210;
 
 public class Matrix 
 {
-	private double[][] cells;
+	public double[][] cells;
 	private double determinant;
 	
 	public Matrix(){ this(3); }
@@ -43,5 +43,17 @@ public class Matrix
 	
 	public double getCell( int column, int row ){
 		return this.cells[column][row];
+	}
+	
+	public String toString(){
+		String s = "";
+		for(int row = 0 ; row < cells.length; row++){
+			for(int col = 0 ; col < cells.length; col++)
+			{
+				s += "["+ cells[col][row] +"]";
+			}
+			s+= "\n";
+		}
+		return s;
 	}
 }

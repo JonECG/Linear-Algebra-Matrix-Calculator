@@ -29,9 +29,19 @@ public class MatrixMath {
 		return result;
 	}
 	
-	
+	//this works! tested on 2 3x3s
 	public static Matrix multiply( Matrix a, Matrix b ){
-		return null;
+		
+		Matrix m = new Matrix(a.cells.length);
+		
+		for(int row = 0 ; row < a.cells.length ; row++){
+			for(int col = 0 ; col < a.cells.length; col++){
+				for(int i =0 ; i < a.cells.length ; i ++){
+					m.cells[col][row] += a.cells[i][row] * b.cells[col][i];
+				}
+			}
+		}
+		return m;
 	}
 	
 	
