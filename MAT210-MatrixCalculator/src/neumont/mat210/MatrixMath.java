@@ -22,7 +22,7 @@ public class MatrixMath {
 		{
 			for(int row = 0; row < result.getDimension(); row++)
 			{
-				double subtractedValue = a.getCell(col, row) + b.getCell(col, row);
+				double subtractedValue = a.getCell(col, row) - b.getCell(col, row);
 				result.setCell(col, row, subtractedValue);
 			}
 		}

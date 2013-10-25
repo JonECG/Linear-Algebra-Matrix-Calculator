@@ -9,7 +9,7 @@ public class Matrix
 	
 	public Matrix( int dimension ){
 		this.cells = new double[dimension][dimension];
-		calculateDeterminant();
+		//calculateDeterminant();
 	}
 	
 	private double calculateDeterminant(){
