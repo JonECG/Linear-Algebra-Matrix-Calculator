@@ -8,7 +8,8 @@ public class MatrixMath {
 		{
 			for(int row = 0; row < result.getDimension(); row++)
 			{
-				
+				double addedValue = a.getCell(col, row) + b.getCell(col, row);
+				result.setCell(col, row, addedValue);
 			}
 		}
 		return result;
@@ -16,7 +17,16 @@ public class MatrixMath {
 	
 	
 	public static Matrix subtract( Matrix a, Matrix b ){
-		return null;
+		Matrix result = new Matrix(a.getDimension());
+		for(int col = 0; col < result.getDimension(); col++)
+		{
+			for(int row = 0; row < result.getDimension(); row++)
+			{
+				double subtractedValue = a.getCell(col, row) + b.getCell(col, row);
+				result.setCell(col, row, subtractedValue);
+			}
+		}
+		return result;
 	}
 	
 	
