@@ -2,7 +2,7 @@ package neumont.mat210;
 
 public class Matrix 
 {
-	public double[][] cells;
+	private double[][] cells;
 	private boolean needsToCalcDeterminate;
 	private double determinant;
 	
@@ -10,10 +10,6 @@ public class Matrix
 	
 	public Matrix( int dimension ){
 		this.cells = new double[dimension][dimension];
-		for( int i = 0; i < dimension; i++ )
-		{
-			cells[i][i] = 1;
-		}
 		needsToCalcDeterminate = true;
 	}
 	
@@ -57,6 +53,11 @@ public class Matrix
 	public void setCell( int column, int row, double value ){
 		needsToCalcDeterminate = true;
 		this.cells[column][row] = value;
+	}
+	
+	public void incrementCell( int column, int row, double value ){
+		needsToCalcDeterminate = true;
+		this.cells[column][row] += value;
 	}
 	
 	public double getCell( int column, int row ){

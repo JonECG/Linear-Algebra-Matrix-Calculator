@@ -2,6 +2,15 @@ package neumont.mat210;
 
 public class MatrixMath {
 	
+	public static Matrix makeIdentity( int dimension )
+	{
+		Matrix result = new Matrix(dimension);
+		for( int i = 0; i < dimension; i++ )
+		{
+			result.setCell(i,i,1);
+		}
+		return result;
+	}
 	public static Matrix add( Matrix a, Matrix b ){
 		Matrix result = new Matrix(a.getDimension());
 		for(int col = 0; col < result.getDimension(); col++)
@@ -37,7 +46,7 @@ public class MatrixMath {
 		for(int row = 0 ; row < a.cells.length ; row++){
 			for(int col = 0 ; col < a.cells.length; col++){
 				for(int i =0 ; i < a.cells.length ; i ++){
-					m.cells[col][row] += a.cells[i][row] * b.cells[col][i];
+					m.incrementCell(col, row, a.getCell(i, row) * b.getCell(col, i));
 				}
 			}
 		}
