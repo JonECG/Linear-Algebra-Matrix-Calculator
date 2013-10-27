@@ -13,6 +13,18 @@ public class Matrix
 		needsToCalcDeterminate = true;
 	}
 	
+	public static Matrix getIdentity( int dimension )
+	{
+		Matrix result = new Matrix( dimension );
+		
+		for( int i = 0; i < dimension; i++ )
+		{
+			result.setCell( i, i, 1 );
+		}
+		
+		return result;
+	}
+	
 	private double calculateDeterminant(){
 		double determinate = 0;
 		if( cells.length != 1 )
@@ -47,6 +59,21 @@ public class Matrix
 	}
 	
 	public void changeDimension( int newDimension ){
+		double[][] newCells = new double[newDimension][newDimension];
+		
+		for( int i = 0; i < newDimension; i++ )
+		{
+			newCells[i][i] = 1;
+			for( int j = 0; j < newDimension; j++ )
+			{
+				if( i < cells.length && j < cells.length )
+				{
+					newCells[i][j] = cells[i][j];
+				}
+			}
+		}
+		
+		cells = newCells;
 		needsToCalcDeterminate = true;
 	}
 	
