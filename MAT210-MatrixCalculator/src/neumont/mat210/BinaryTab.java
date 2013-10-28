@@ -57,17 +57,17 @@ public class BinaryTab extends JPanel {
 		matrixBLabel.setBounds(579, 11, 124, 66);
 		add(matrixBLabel);
 		
-		JRadioButton rdbtnAddition = new JRadioButton("Addition");
-		rdbtnAddition.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		rdbtnAddition.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnAddition.setBounds(271, 67, 225, 36);
-		add(rdbtnAddition);
+		JRadioButton btnAdd = new JRadioButton("Addition");
+		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		btnAdd.setHorizontalAlignment(SwingConstants.CENTER);
+		btnAdd.setBounds(271, 67, 225, 36);
+		add(btnAdd);
 		
-		JRadioButton rdbtnSubtraction = new JRadioButton("Subtraction");
-		rdbtnSubtraction.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		rdbtnSubtraction.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnSubtraction.setBounds(271, 129, 225, 36);
-		add(rdbtnSubtraction);
+		JRadioButton btnSubtract = new JRadioButton("Subtraction");
+		btnSubtract.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		btnSubtract.setHorizontalAlignment(SwingConstants.CENTER);
+		btnSubtract.setBounds(271, 129, 225, 36);
+		add(btnSubtract);
 		
 		JLabel lblResult = new JLabel("Result = ");
 		lblResult.setHorizontalAlignment(SwingConstants.CENTER);
