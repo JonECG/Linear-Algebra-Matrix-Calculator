@@ -29,7 +29,7 @@ public class MatrixSetTab extends JPanel
 
 		
 		whichMatrix = new JLabel("A=");
-		whichMatrix.setBounds(42, 109, 165, 82);
+		whichMatrix.setBounds(43, 110, 165, 82);
 		add(whichMatrix);
 		whichMatrix.setFont(new Font("Tahoma", Font.PLAIN, 68));
 		whichMatrix.setHorizontalAlignment(SwingConstants.CENTER);
