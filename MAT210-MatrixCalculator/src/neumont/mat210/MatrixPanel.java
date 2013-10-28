@@ -67,9 +67,10 @@ public class MatrixPanel extends JPanel
 		repaint();
 	}
 	
-	public void paint( Graphics g )
+	@Override
+	public void validate()
 	{
-		super.paint(g);
+		super.validate();
 		GridLayout lay = (GridLayout)getLayout();
 		if( lay.getRows() != mat.getDimension() )
 		{
