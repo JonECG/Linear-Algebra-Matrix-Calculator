@@ -46,9 +46,14 @@ public abstract class MatrixSelector extends JPanel implements ActionListener
 		return matrices[ currentlySelected ];
 	}
 	
-	public char getCurrentMatrixLetter()
+	public String getCurrentMatrixLetter()
 	{
-		return (char) (alphabetStart + currentlySelected);
+		return "" +(char) (alphabetStart + currentlySelected);
+	}
+	
+	public int getCurrentMatrixIndex()
+	{
+		return currentlySelected;
 	}
 	
 	protected void performMyAction()

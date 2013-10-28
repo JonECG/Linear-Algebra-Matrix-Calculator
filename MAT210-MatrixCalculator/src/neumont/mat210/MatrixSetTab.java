@@ -11,7 +11,7 @@ import java.awt.SystemColor;
 
 public class MatrixSetTab extends JPanel
 {
-
+	private static final long serialVersionUID = 6610763794542416748L;
 	private MatrixPanel matPanel;
 	private JLabel whichMatrix;
 	private Matrix[] matrices;
