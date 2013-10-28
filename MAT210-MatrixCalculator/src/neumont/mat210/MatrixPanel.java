@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import java.awt.AWTEvent;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 
 public class MatrixPanel extends JPanel
@@ -64,6 +65,16 @@ public class MatrixPanel extends JPanel
 		}
 		revalidate();
 		repaint();
+	}
+	
+	public void paint( Graphics g )
+	{
+		super.paint(g);
+		GridLayout lay = (GridLayout)getLayout();
+		if( lay.getRows() != mat.getDimension() )
+		{
+			updateView();
+		}
 	}
 	
 	public void setMatrix( Matrix mat )
