@@ -16,7 +16,7 @@ public abstract class MatrixSelector extends JPanel implements ActionListener
 	public MatrixSelector( Matrix[] matrices )
 	{
 		this.matrices = matrices;
-		this.setLayout( new GridLayout( 2, matrices.length/2 + 1, 0, 0 ) );
+		this.setLayout( new GridLayout( matrices.length/2 + 1, 2, 0, 0 ) );
 		for( int i = 0; i < matrices.length; i++ )
 		{
 			JButton button = new JButton( "" + (char)(alphabetStart + i));
