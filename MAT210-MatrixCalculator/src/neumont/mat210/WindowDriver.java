@@ -4,6 +4,7 @@ package neumont.mat210;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.SystemColor;
 import javax.swing.JTabbedPane;
@@ -13,7 +14,7 @@ public class WindowDriver
 {
 	static final int NUMBER_OF_MATRICES = 4;
 	
-	private JFrame frame;
+	private static JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -27,7 +28,7 @@ public class WindowDriver
 				try
 				{
 					WindowDriver window = new WindowDriver();
-					window.frame.setVisible( true );
+					frame.setVisible( true );
 				}
 				catch ( Exception e )
 				{
@@ -43,6 +44,11 @@ public class WindowDriver
 	public WindowDriver()
 	{
 		initialize();
+	}
+	
+	public static void showErrorMessage( String title, String message )
+	{
+		JOptionPane.showMessageDialog(frame, message, title,  JOptionPane.WARNING_MESSAGE);
 	}
 
 	/**
