@@ -86,14 +86,17 @@ public class MatrixPanel extends JPanel
 	@Override
 	public void validate()
 	{
-		GridLayout lay = (GridLayout)getLayout();
-		if( lay.getRows() != mat.getDimension() )
+		if (mat != null)
 		{
-			updateView();
-		}
-		else
-		{
-			updateTextAreas();
+			GridLayout lay = (GridLayout)getLayout();
+			if( lay.getRows() != mat.getDimension() )
+			{
+				updateView();
+			}
+			else
+			{
+				updateTextAreas();
+			}
 		}
 		super.validate();
 	}
