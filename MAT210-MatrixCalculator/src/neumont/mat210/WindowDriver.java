@@ -70,11 +70,14 @@ public class WindowDriver
 		
 		JPanel setPanel = new MatrixSetTab( matrices );
 		tabbedPane.addTab("Edit Matrices", null, setPanel, null);
-		
+
 		JPanel unaryPanel = new UnaryTab( matrices );
 		tabbedPane.addTab("Unary Operations", null, unaryPanel, null);
 		
 		JPanel binaryPanel = new BinaryTab( matrices );
 		tabbedPane.addTab("Binary Operations", null, binaryPanel, null);
+		
+		JPanel ScalarTab = new ScalarTab( matrices );
+		tabbedPane.addTab("Scaling", null, ScalarTab, null);
 	}
 }

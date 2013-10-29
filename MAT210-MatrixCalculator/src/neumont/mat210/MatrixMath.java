@@ -40,6 +40,7 @@ public class MatrixMath {
 					System.out.println(a.getDimension());
 					System.out.println(row + " " + col + " " + i);
 					m.setCell(col,row, m.getCell(col,row) + a.getCell(i, row) * b.getCell(col, i) );
+
 				}
 			}
 		}

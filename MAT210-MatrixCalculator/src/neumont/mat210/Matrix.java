@@ -10,7 +10,9 @@ public class Matrix
 	
 	public Matrix( int dimension ){
 		this.cells = new double[dimension][dimension];
+
 		needsToCalcDeterminate = true;
+
 	}
 	
 	public static Matrix getIdentity( int dimension )
