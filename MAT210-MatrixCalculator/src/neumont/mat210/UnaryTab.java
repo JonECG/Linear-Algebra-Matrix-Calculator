@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class UnaryTab extends JPanel{
 	/**
@@ -20,7 +21,7 @@ public class UnaryTab extends JPanel{
 		matrices=mats;
 		input = new MatrixPanel(false);
 		input.setMatrix(matrices[0]);
-		input.setBounds(101, 56, 208, 160);
+		input.setBounds(111, 39, 185, 204);
 		add(input);
 		
 		final JLabel lblA = new JLabel("A=");
@@ -49,7 +50,7 @@ public class UnaryTab extends JPanel{
 		add(panel_2);
 		
 		result = new MatrixPanel(false);
-		result.setBounds(445, 56, 208, 160);
+		result.setBounds(462, 39, 191, 204);
 		result.setMatrix(new Matrix(3));
 		add(result);
 		
@@ -79,6 +80,23 @@ public class UnaryTab extends JPanel{
 		JButton btnAdjoint = new JButton("Adjoint");
 		btnAdjoint.setBounds(329, 317, 89, 23);
 		add(btnAdjoint);
+		
+		JLabel label = new JLabel("[ ]");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 250));
+		label.setBounds(10, -39, 387, 300);
+		add(label);
+		
+		JLabel label_1 = new JLabel("[ ]");
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 250));
+		label_1.setBounds(362, -39, 387, 300);
+		add(label_1);
+		
+		JLabel lblResult = new JLabel("Result=");
+		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblResult.setBounds(362, 105, 90, 65);
+		add(lblResult);
 		btnAdjoint.addActionListener( new ActionListener(){
 
 			@Override
