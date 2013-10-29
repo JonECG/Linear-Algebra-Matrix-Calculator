@@ -1,5 +1,6 @@
 package neumont.mat210;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -70,6 +71,13 @@ public class MatrixPanel extends JPanel
 					add( cell );
 				}
 			}
+		}
+		else
+		{
+			removeAll();
+			jFields.clear();
+			setLayout(new GridLayout(1,1, 0, 0));
+			add(new JLabel("No Matrix"));
 		}
 		revalidate();
 		repaint();
