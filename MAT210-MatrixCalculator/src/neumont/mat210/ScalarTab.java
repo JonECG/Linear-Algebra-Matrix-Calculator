@@ -107,7 +107,7 @@ public class ScalarTab extends JPanel{
 		add(lblSetMatrix);
 		
 		whichMatrix = new JLabel("A =");
-		whichMatrix.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		whichMatrix.setFont(new Font("Tahoma", Font.BOLD, 26));
 		whichMatrix.setBounds(208, 11, 66, 23);
 		add(whichMatrix);
 	}

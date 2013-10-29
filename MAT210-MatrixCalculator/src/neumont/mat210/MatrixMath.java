@@ -56,7 +56,7 @@ public class MatrixMath {
 		{
 		   for(int col=0; col<a.getDimension(); col++)
 		   {
-			  n.setCell(col, row, a.getCell(row, col) * scalar);
+			  n.setCell(col, row, a.getCell(col, row) * scalar);
 		   }
 			   
 		}
