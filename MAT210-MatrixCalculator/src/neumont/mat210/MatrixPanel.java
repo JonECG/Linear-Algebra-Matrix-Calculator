@@ -12,6 +12,10 @@ import java.util.ArrayList;
 
 public class MatrixPanel extends JPanel
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private boolean isEditable;
 	private Matrix mat;
 	private DecimalFormat df;
