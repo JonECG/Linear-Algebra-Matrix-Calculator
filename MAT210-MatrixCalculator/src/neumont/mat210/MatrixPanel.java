@@ -81,6 +81,7 @@ public class MatrixPanel extends JPanel
 			jFields.clear();
 			setLayout(new GridLayout(1,1, 0, 0));
 			JTextField field = new JTextField("No Matrix");
+			field.setHorizontalAlignment(JTextField.CENTER);
 			field.setEditable( false );
 			add(field);
 		}
