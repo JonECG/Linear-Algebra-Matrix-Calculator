@@ -106,4 +106,10 @@ public class MatrixSetTab extends JPanel
 		lblDeterminate.setText( "|" + select.getCurrentMatrixLetter() + "|=" + matPanel.getMatrix().getDeterminant() );
 		repaint();
 	}
+	
+	public void resetMatrixPanel()
+	{
+		matPanel.setMatrix( select.getCurrentMatrix() );
+		updateDeterminant();
+	}
 }

@@ -16,6 +16,7 @@ public class UnaryTab extends JPanel{
 	private static final long serialVersionUID = -350247910530867283L;
 	private Matrix[] matrices;
 	private MatrixPanel input, result;
+	private MatrixSelector inputSelect;
 	public UnaryTab(Matrix[] mats) {
 		setLayout(null);
 		matrices=mats;
@@ -29,15 +30,15 @@ public class UnaryTab extends JPanel{
 		lblA.setBounds(26, 105, 65, 65);
 		add(lblA);
 		
-		MatrixSelector panel_1 = new MatrixSelector(matrices){
+		inputSelect = new MatrixSelector(matrices){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				input.setMatrix( getCurrentMatrix() );
 				lblA.setText(getCurrentMatrixLetter()+ "=");
 			}};
-		panel_1.setBounds(158, 272, 104, 65);
-		add(panel_1);
+			inputSelect.setBounds(158, 272, 104, 65);
+		add(inputSelect);
 		
 		MatrixSelector panel_2 = new MatrixSelector(matrices){
 
@@ -105,5 +106,11 @@ public class UnaryTab extends JPanel{
 				
 			}});
 		
+	}
+	
+	public void resetMatrixPanel()
+	{
+		input.setMatrix( inputSelect.getCurrentMatrix() );
+		repaint();
 	}
 }

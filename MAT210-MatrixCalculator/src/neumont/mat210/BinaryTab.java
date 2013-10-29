@@ -11,6 +11,10 @@ public class BinaryTab extends JPanel {
 	private MatrixPanel leftMatrix;
 	private MatrixPanel rightMatrix;
 	private MatrixPanel resultMatrix;
+	
+	private MatrixSelector selectLeftMatrix;
+	private MatrixSelector selectRightMatrix;
+	private MatrixSelector saveResult;
 
 	private JLabel leftMatrixLabel;
 	private JLabel rightMatrixLabel;
@@ -75,7 +79,7 @@ public class BinaryTab extends JPanel {
 		saveResultLabel.setBounds(520, 360, 94, 14);
 		add(saveResultLabel);
 
-		MatrixSelector selectLeftMatrix = new MatrixSelector(matrices)
+		selectLeftMatrix = new MatrixSelector(matrices)
 		{
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -86,7 +90,7 @@ public class BinaryTab extends JPanel {
 		selectLeftMatrix.setBounds(10,285,110,111);
 		add(selectLeftMatrix);
 
-		MatrixSelector selectRightMatrix = new MatrixSelector(matrices)
+		selectRightMatrix = new MatrixSelector(matrices)
 		{
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,7 +101,7 @@ public class BinaryTab extends JPanel {
 		selectRightMatrix.setBounds(640,285,110,111);
 		add(selectRightMatrix);
 
-		MatrixSelector saveResult = new MatrixSelector(matrices)
+		saveResult = new MatrixSelector(matrices)
 		{
 			@Override
 			public void actionPerformed(ActionEvent e) 
@@ -221,5 +225,12 @@ public class BinaryTab extends JPanel {
 		rightMatrix_Area.setBounds(487, -38, 302, 348);
 		add(rightMatrix_Area);
 
+	}
+	
+	public void resetMatrixPanel()
+	{
+		leftMatrix.setMatrix( selectLeftMatrix.getCurrentMatrix() );
+		rightMatrix.setMatrix( selectRightMatrix.getCurrentMatrix() );
+		repaint();
 	}
 }

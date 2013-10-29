@@ -103,6 +103,7 @@ public class MatrixPanel extends JPanel
 	{
 		if (mat != null)
 		{
+			System.out.println("ha");
 			GridLayout lay = (GridLayout)getLayout();
 			if( lay.getRows() != mat.getDimension() )
 			{
@@ -110,6 +111,7 @@ public class MatrixPanel extends JPanel
 			}
 			else
 			{
+				//updateView();
 				updateTextAreas();
 			}
 		}
@@ -122,6 +124,7 @@ public class MatrixPanel extends JPanel
 		{
 			jFields.get(i).setText( df.format( mat.getCell( i/mat.getDimension(), i%mat.getDimension() ) ) );
 		}
+		repaint();
 	}
 
 	public void setMatrix( Matrix mat )

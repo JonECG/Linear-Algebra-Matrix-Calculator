@@ -19,7 +19,7 @@ public class ScalarTab extends JPanel{
 	private JLabel lblSetMatrix;
 	
 	public ScalarTab(Matrix[] matrix) {
-		this.tabMatrix = matrix;
+		tabMatrix = matrix;
 		
 		setLayout(null);
 		
@@ -38,8 +38,9 @@ public class ScalarTab extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				tabMatrix[selector.getCurrentMatrixIndex()] = matrixPanel.getMatrix();
-				mp.setMatrix( getCurrentMatrix());
+				tabMatrix[getCurrentMatrixIndex()] = matrixPanel.getMatrix();
+				mp.setMatrix( selector.getCurrentMatrix() );
+				mp.updateView();
 			}
 		};
 		selector2.setBounds(429,278,110,111);
@@ -108,5 +109,11 @@ public class ScalarTab extends JPanel{
 		lblSetMatrix = new JLabel("Save to matrix:");
 		lblSetMatrix.setBounds(439, 251, 89, 14);
 		add(lblSetMatrix);
+	}
+	
+	public void resetMatrixPanel()
+	{
+		mp.setMatrix( selector.getCurrentMatrix() );
+		repaint();
 	}
 }
