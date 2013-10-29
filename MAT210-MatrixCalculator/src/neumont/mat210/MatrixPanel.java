@@ -6,16 +6,22 @@ import javax.swing.JTextField;
 import java.awt.AWTEvent;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class MatrixPanel extends JPanel
 {
 	private boolean isEditable;
 	private Matrix mat;
+	private DecimalFormat df;
+	private ArrayList<JTextField> jFields;
 	
 	public MatrixPanel( boolean isEditable ) 
 	{
 		this.isEditable = isEditable;
 		setLayout(new GridLayout(1, 0, 0, 0));
+		df = new DecimalFormat("#.######");
+		jFields = new ArrayList<JTextField>();
 	}
 	
 	public MatrixPanel( boolean isEditable, Matrix mat ) 
@@ -30,13 +36,15 @@ public class MatrixPanel extends JPanel
 		if (mat != null)
 		{
 			removeAll();
+			jFields.clear();
 			setLayout(new GridLayout(mat.getDimension(), mat.getDimension(), 0, 0));
 			for( int i = 0; i < mat.getDimension(); i++ )
 			{
 				for( int j = 0; j < mat.getDimension(); j++ )
 				{
-					JTextField cell = new JTextField( ""+mat.getCell(i, j));
+					JTextField cell = new JTextField( df.format( mat.getCell(i, j ) + 0.0 ) );
 					cell.setEditable( isEditable );
+					jFields.add(cell);
 					
 					if( isEditable )
 					{
@@ -52,7 +60,7 @@ public class MatrixPanel extends JPanel
 									mat.setCell(column, row, Double.parseDouble( currentText ) );
 								}
 								catch( Exception ex ){};
-								field.setText( ""+mat.getCell(column, row) );
+								field.setText( df.format( mat.getCell(column, row ) + 0.0 ) );
 							}
 						};
 						cell.addActionListener( list );
@@ -70,14 +78,26 @@ public class MatrixPanel extends JPanel
 	@Override
 	public void validate()
 	{
-		super.validate();
 		GridLayout lay = (GridLayout)getLayout();
 		if( lay.getRows() != mat.getDimension() )
 		{
 			updateView();
 		}
+		else
+		{
+			updateTextAreas();
+		}
+		super.validate();
 	}
 	
+	private void updateTextAreas() 
+	{
+		for( int i = 0; i < jFields.size(); i++ )
+		{
+			jFields.get(i).setText( df.format( mat.getCell( i/mat.getDimension(), i%mat.getDimension() ) ) );
+		}
+	}
+
 	public void setMatrix( Matrix mat )
 	{
 		this.mat = mat;
