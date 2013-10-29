@@ -15,6 +15,8 @@ public class ScalarTab extends JPanel{
 	MatrixSelector selector, selector2;
 	private JLabel lblNewLabel;
 	private JLabel label_1;
+	private JLabel lblScalar;
+	private JLabel lblSetMatrix;
 	
 	public ScalarTab(Matrix[] matrix) {
 		this.tabMatrix = matrix;
@@ -85,11 +87,26 @@ public class ScalarTab extends JPanel{
 		JButton btnNewButton = new JButton("Calculate");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = Integer.parseInt(textField.getText());
-				matrixPanel.setMatrix(MatrixMath.scale(i, selector.getCurrentMatrix()));
+				try{
+					int i = Integer.parseInt(textField.getText());
+					matrixPanel.setMatrix(MatrixMath.scale(i, selector.getCurrentMatrix()));
+				}catch(Exception ex){
+					WindowDriver.showErrorMessage("Input Error", "Please enter a valid number.");
+					textField.setText("");
+				}
+				
 			}
 		});
+		
 		btnNewButton.setBounds(439, 190, 89, 23);
 		add(btnNewButton);
+		
+		lblScalar = new JLabel("Scalar");
+		lblScalar.setBounds(43, 76, 46, 14);
+		add(lblScalar);
+		
+		lblSetMatrix = new JLabel("Save to matrix:");
+		lblSetMatrix.setBounds(439, 251, 89, 14);
+		add(lblSetMatrix);
 	}
 }
