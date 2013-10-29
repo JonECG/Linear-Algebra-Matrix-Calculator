@@ -37,7 +37,7 @@ public class MatrixMath {
 		for(int row = 0 ; row < a.getDimension() ; row++){
 			for(int col = 0 ; col < a.getDimension(); col++){
 				for(int i =0 ; i < a.getDimension() ; i ++){
-					m.getCell(col,row += a.getCell(i, row) * b.getCell(col, i));
+					m.setCell(col,row, m.getCell(col,row) + a.getCell(i, row) * b.getCell(col, i) );
 				}
 			}
 		}
