@@ -17,6 +17,9 @@ public class MatrixPanel extends JPanel
 	private DecimalFormat df;
 	private ArrayList<JTextField> jFields;
 	
+	/**
+	 * @wbp.parser.constructor
+	 */
 	public MatrixPanel( boolean isEditable ) 
 	{
 		this.isEditable = isEditable;
@@ -77,7 +80,9 @@ public class MatrixPanel extends JPanel
 			removeAll();
 			jFields.clear();
 			setLayout(new GridLayout(1,1, 0, 0));
-			add(new JLabel("No Matrix"));
+			JTextField field = new JTextField("No Matrix");
+			field.setEditable( false );
+			add(field);
 		}
 		revalidate();
 		repaint();
