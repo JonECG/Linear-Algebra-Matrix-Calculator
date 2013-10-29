@@ -62,6 +62,7 @@ public class MatrixPanel extends JPanel
 								try
 								{
 									mat.setCell(column, row, Double.parseDouble( currentText ) );
+									textChanged();
 								}
 								catch( Exception ex ){};
 								field.setText( df.format( mat.getCell(column, row ) + 0.0 ) );
@@ -87,6 +88,10 @@ public class MatrixPanel extends JPanel
 		}
 		revalidate();
 		repaint();
+	}
+	
+	public void textChanged()
+	{
 	}
 	
 	@Override
