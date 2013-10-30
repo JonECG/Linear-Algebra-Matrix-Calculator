@@ -18,6 +18,7 @@ public class MatrixSetTab extends JPanel
 	private JLabel whichMatrix, lblDeterminate;
 	private MatrixSelector select;
 	private Matrix[] matrices;
+	private JLabel label;
 	
 	public MatrixSetTab( Matrix[] matrices )
 	{
@@ -99,6 +100,11 @@ public class MatrixSetTab extends JPanel
 		lblDeterminate.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		lblDeterminate.setBounds(338, 385, 265, 82);
 		add(lblDeterminate);
+		
+		label = new JLabel("Select matrix:");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setBounds(71, 203, 110, 14);
+		add(label);
 	}
 	
 	private void updateDeterminant()

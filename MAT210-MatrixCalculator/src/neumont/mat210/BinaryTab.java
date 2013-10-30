@@ -19,6 +19,7 @@ public class BinaryTab extends JPanel {
 	private JLabel leftMatrixLabel;
 	private JLabel rightMatrixLabel;
 	private JLabel lblResult;
+	private JLabel label;
 
 	public BinaryTab( Matrix[] matrices )
 	{
@@ -74,7 +75,7 @@ public class BinaryTab extends JPanel {
 		lblResult.setBounds(350, 182, 68, 44);
 		add(lblResult);
 
-		JLabel saveResultLabel = new JLabel("Save to matrix:");
+		JLabel saveResultLabel = new JLabel("Save result to:");
 		saveResultLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		saveResultLabel.setBounds(520, 360, 94, 14);
 		add(saveResultLabel);
@@ -87,7 +88,7 @@ public class BinaryTab extends JPanel {
 				leftMatrix.setMatrix( getCurrentMatrix() );
 			}
 		};
-		selectLeftMatrix.setBounds(10,285,110,111);
+		selectLeftMatrix.setBounds(10,316,110,111);
 		add(selectLeftMatrix);
 
 		selectRightMatrix = new MatrixSelector(matrices)
@@ -99,7 +100,7 @@ public class BinaryTab extends JPanel {
 			}
 		};
 		selectRightMatrix.currentlySelected = 1;
-		selectRightMatrix.setBounds(640,285,110,111);
+		selectRightMatrix.setBounds(640,316,110,111);
 		add(selectRightMatrix);
 
 		saveResult = new MatrixSelector(matrices)
@@ -225,6 +226,16 @@ public class BinaryTab extends JPanel {
 		rightMatrix_Area.setFont(new Font("Tahoma", Font.PLAIN, 250));
 		rightMatrix_Area.setBounds(487, -38, 302, 348);
 		add(rightMatrix_Area);
+		
+		JLabel lblSelectMatrix = new JLabel("Select matrix:");
+		lblSelectMatrix.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSelectMatrix.setBounds(10, 291, 110, 14);
+		add(lblSelectMatrix);
+		
+		label = new JLabel("Select matrix:");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setBounds(640, 291, 110, 14);
+		add(label);
 
 	}
 	

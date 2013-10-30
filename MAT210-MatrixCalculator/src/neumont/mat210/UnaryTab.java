@@ -40,7 +40,7 @@ public class UnaryTab extends JPanel{
 				input.setMatrix( getCurrentMatrix() );
 				lblA.setText(getCurrentMatrixLetter()+ "=");
 			}};
-			inputSelect.setBounds(158, 272, 104, 89);
+			inputSelect.setBounds(158, 296, 104, 89);
 		add(inputSelect);
 		
 		MatrixSelector panel_2 = new MatrixSelector(matrices){
@@ -58,7 +58,7 @@ public class UnaryTab extends JPanel{
 				}
 				
 			}};
-		panel_2.setBounds(507, 272, 104, 89);
+		panel_2.setBounds(507, 296, 104, 89);
 		add(panel_2);
 		
 		result = new MatrixPanel(false);
@@ -117,6 +117,16 @@ public class UnaryTab extends JPanel{
 		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblResult.setBounds(362, 105, 90, 65);
 		add(lblResult);
+		
+		JLabel label_2 = new JLabel("Select matrix:");
+		label_2.setHorizontalAlignment(SwingConstants.CENTER);
+		label_2.setBounds(158, 272, 110, 14);
+		add(label_2);
+		
+		JLabel lblSaveResultTo = new JLabel("Save result to:");
+		lblSaveResultTo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSaveResultTo.setBounds(507, 272, 110, 14);
+		add(lblSaveResultTo);
 		btnAdjoint.addActionListener( new ActionListener(){
 
 			@Override

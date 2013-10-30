@@ -17,6 +17,7 @@ public class ScalarTab extends JPanel{
 	private JLabel lblScalar;
 	private JLabel lblSetMatrix;
 	private JLabel whichMatrix;
+	private JLabel label_2;
 	
 	public ScalarTab(Matrix[] matrix) {
 		tabMatrix = matrix;
@@ -110,6 +111,11 @@ public class ScalarTab extends JPanel{
 		whichMatrix.setFont(new Font("Tahoma", Font.BOLD, 26));
 		whichMatrix.setBounds(208, 11, 66, 23);
 		add(whichMatrix);
+		
+		label_2 = new JLabel("Select matrix:");
+		label_2.setHorizontalAlignment(SwingConstants.CENTER);
+		label_2.setBounds(429, 11, 110, 14);
+		add(label_2);
 	}
 	
 	public void resetMatrixPanel()
