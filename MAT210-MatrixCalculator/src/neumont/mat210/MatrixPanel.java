@@ -103,7 +103,6 @@ public class MatrixPanel extends JPanel
 	{
 		if (mat != null)
 		{
-			System.out.println("ha");
 			GridLayout lay = (GridLayout)getLayout();
 			if( lay.getRows() != mat.getDimension() )
 			{

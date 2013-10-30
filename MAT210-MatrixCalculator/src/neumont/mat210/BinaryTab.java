@@ -98,6 +98,7 @@ public class BinaryTab extends JPanel {
 				rightMatrix.setMatrix( getCurrentMatrix() );
 			}
 		};
+		selectRightMatrix.currentlySelected = 1;
 		selectRightMatrix.setBounds(640,285,110,111);
 		add(selectRightMatrix);
 

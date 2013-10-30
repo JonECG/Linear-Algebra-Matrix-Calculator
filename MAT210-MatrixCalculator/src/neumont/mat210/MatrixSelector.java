@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public abstract class MatrixSelector extends JPanel implements ActionListener
 {
 	private Matrix[] matrices;
-	private int currentlySelected;
+	public int currentlySelected;
 	private int alphabetStart = 'A';
 	
 	public MatrixSelector( Matrix[] matrices )

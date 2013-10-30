@@ -40,7 +40,7 @@ public class UnaryTab extends JPanel{
 				input.setMatrix( getCurrentMatrix() );
 				lblA.setText(getCurrentMatrixLetter()+ "=");
 			}};
-			inputSelect.setBounds(158, 272, 104, 65);
+			inputSelect.setBounds(158, 272, 104, 89);
 		add(inputSelect);
 		
 		MatrixSelector panel_2 = new MatrixSelector(matrices){
@@ -50,7 +50,7 @@ public class UnaryTab extends JPanel{
 				matrices[getCurrentMatrixIndex()] = result.getMatrix();
 				input.updateUI();
 			}};
-		panel_2.setBounds(507, 272, 104, 65);
+		panel_2.setBounds(507, 272, 104, 89);
 		add(panel_2);
 		
 		result = new MatrixPanel(false);
@@ -59,18 +59,19 @@ public class UnaryTab extends JPanel{
 		add(result);
 		
 		JButton btnInverse = new JButton("Inverse");
-		btnInverse.setBounds(329, 227, 89, 23);
+		btnInverse.setBounds(324, 227, 102, 23);
 		add(btnInverse);
 		btnInverse.addActionListener( new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
-					int i = Integer.parseInt(textField.getText());
+				if (input.getMatrix().getDeterminant() != 0)
+				{
 					result.setMatrix( MatrixMath.invert( input.getMatrix() ));
-				}catch(Exception ex){
+				}
+				else
+				{
 					WindowDriver.showErrorMessage("Determinant of Zero", "This Matrix has no Inverse.");
-					textField.setText("");
 				}
 				
 			}
@@ -78,7 +79,7 @@ public class UnaryTab extends JPanel{
 		});
 		
 		JButton btnTranspose = new JButton("Transpose");
-		btnTranspose.setBounds(329, 272, 89, 23);
+		btnTranspose.setBounds(324, 272, 102, 23);
 		add(btnTranspose);
 		btnTranspose.addActionListener( new ActionListener(){
 
@@ -89,7 +90,7 @@ public class UnaryTab extends JPanel{
 			}});
 		
 		JButton btnAdjoint = new JButton("Adjoint");
-		btnAdjoint.setBounds(329, 317, 89, 23);
+		btnAdjoint.setBounds(324, 317, 102, 23);
 		add(btnAdjoint);
 		
 		JLabel label = new JLabel("[ ]");
