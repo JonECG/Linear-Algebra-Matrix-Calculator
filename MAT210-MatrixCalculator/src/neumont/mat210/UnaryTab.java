@@ -47,15 +47,23 @@ public class UnaryTab extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				matrices[getCurrentMatrixIndex()] = result.getMatrix();
-				input.updateUI();
+				if( result.getMatrix() != null )
+				{
+					matrices[getCurrentMatrixIndex()] = result.getMatrix();
+					input.updateUI();
+				}
+				else
+				{
+					WindowDriver.showErrorMessage("No result", "Perform one of the unary operations in order to get a result to save.");
+				}
+				
 			}};
 		panel_2.setBounds(507, 272, 104, 89);
 		add(panel_2);
 		
 		result = new MatrixPanel(false);
 		result.setBounds(462, 39, 191, 204);
-		result.setMatrix(new Matrix(3));
+		result.setMatrix(null);
 		add(result);
 		
 		JButton btnInverse = new JButton("Inverse");

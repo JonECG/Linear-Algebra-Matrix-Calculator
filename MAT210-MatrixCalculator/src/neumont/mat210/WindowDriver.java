@@ -16,7 +16,7 @@ import java.awt.Color;
 
 public class WindowDriver
 {
-	static final int NUMBER_OF_MATRICES = 6;
+	static final int NUMBER_OF_MATRICES = 4;
 	
 	private static JFrame frame;
 	private JTabbedPane tabbedPane;
