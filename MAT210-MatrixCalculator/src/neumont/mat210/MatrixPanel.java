@@ -39,6 +39,14 @@ public class MatrixPanel extends JPanel
 		updateView();
 	}
 	
+	public String rz( String text )
+	{
+		String result = text;
+		if (result.equals("-0"))
+			result = "0";
+		return result;
+	}
+	
 	public void updateView()
 	{
 		if (mat != null)
@@ -69,7 +77,7 @@ public class MatrixPanel extends JPanel
 									textChanged();
 								}
 								catch( Exception ex ){};
-								field.setText( df.format( mat.getCell(column, row ) + 0.0 ) );
+								field.setText( rz( df.format( mat.getCell(column, row ) + 0.0 ) ) );
 							}
 						};
 						cell.addActionListener( list );
@@ -121,7 +129,7 @@ public class MatrixPanel extends JPanel
 	{
 		for( int i = 0; i < jFields.size(); i++ )
 		{
-			jFields.get(i).setText( df.format( mat.getCell( i/mat.getDimension(), i%mat.getDimension() ) ) );
+			jFields.get(i).setText( rz( df.format( mat.getCell( i/mat.getDimension(), i%mat.getDimension() ) ) ) );
 		}
 		repaint();
 	}
