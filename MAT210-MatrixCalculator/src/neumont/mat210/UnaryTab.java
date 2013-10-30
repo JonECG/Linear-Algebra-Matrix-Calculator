@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
@@ -17,6 +19,7 @@ public class UnaryTab extends JPanel{
 	private Matrix[] matrices;
 	private MatrixPanel input, result;
 	private MatrixSelector inputSelect;
+	private JTextField textField;
 	public UnaryTab(Matrix[] mats) {
 		setLayout(null);
 		matrices=mats;
@@ -62,7 +65,14 @@ public class UnaryTab extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				result.setMatrix( MatrixMath.invert( input.getMatrix() ));
+				try{
+					int i = Integer.parseInt(textField.getText());
+					result.setMatrix( MatrixMath.invert( input.getMatrix() ));
+				}catch(Exception ex){
+					WindowDriver.showErrorMessage("Determinant of Zero", "This Matrix has no Inverse.");
+					textField.setText("");
+				}
+				
 			}
 			
 		});
